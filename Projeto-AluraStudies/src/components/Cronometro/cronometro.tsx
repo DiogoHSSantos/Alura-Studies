@@ -8,8 +8,9 @@ import { ITarefa } from '../../types/ITarefa';
 
 interface Props {
     selecionado: ITarefa | undefined
+    finalizarTarefa: ()=> void 
 }
-export const Cronometro = ({ selecionado }:Props)=>{
+export const Cronometro = ({ selecionado, finalizarTarefa }:Props)=>{
     
     const [ tempo, setTempo] = useState<number>();
 
@@ -26,6 +27,7 @@ export const Cronometro = ({ selecionado }:Props)=>{
             setTempo(contador - 1);
             return regressiva(contador - 1)
         }
+        finalizarTarefa();
     }, 1000)
 
     }
